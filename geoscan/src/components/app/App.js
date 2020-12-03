@@ -1,4 +1,4 @@
-import './App.css';
+import './app.css';
 import React from 'react';
 import {Button} from 'antd';
 import AntModal from '../modal/modal';
