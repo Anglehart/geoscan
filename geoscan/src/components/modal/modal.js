@@ -1,5 +1,6 @@
 import React from 'react';
 import {Modal, Form, Input, InputNumber} from 'antd';
+import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 
 const AntModal = (props) => {
@@ -7,12 +8,12 @@ const AntModal = (props) => {
   const [form] = Form.useForm();
   
   const validateMessages = {
-    required: '${label} обязательно!',
+    required: 'Поле обязательно!',
     types: {
-      number: '${label} не может содержать буквы!',
+      number: 'Поле не может содержать буквы!',
     },
     number: {
-      range: '${label} должно быть между ${min} и ${max}',
+      range: 'Число в недопустимом интервале.',
     },
   };
   
@@ -30,9 +31,6 @@ const AntModal = (props) => {
           form.resetFields();
           props.onCreate(values);
         })
-        .catch((info) => {
-
-        });
       }}
     >
     <Form
@@ -68,4 +66,11 @@ const AntModal = (props) => {
   );
 }
 
-export default AntModal;
+export default connect(
+  state =>({}),
+  dispatch => ({
+    onCreate: (book) => {
+      dispatch({type: 'BOOK_ADDED', payload: book})
+    }
+  })
+)(AntModal);

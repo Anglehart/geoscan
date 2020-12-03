@@ -7,12 +7,7 @@ import AntTable from '../table/table';
 const App = () => {
   
   const [visible, setVisible] = React.useState(false);
-  const [books, setBooks] = React.useState([]);
-  
-  const onCreate = (book) => {
-    book.key = books.length;
-    setBooks(books.concat([book]));
-  }
+
   const onCancel = () => {
     setVisible(false);
   }
@@ -23,8 +18,8 @@ const App = () => {
         <Button type="primary" className="add-btn" onClick={() => {setVisible(true)}}>Добавить</Button>
       </header>
       <main>
-        <AntModal visible={visible} onCreate={onCreate} onCancel={onCancel}/>
-        <AntTable data={books} />
+        <AntModal visible={visible} onCancel={onCancel}/>
+        <AntTable />
       </main>
     </div>
   );
