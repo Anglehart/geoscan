@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  text-align: right;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.add-btn {
+  margin: 20px;
+}
